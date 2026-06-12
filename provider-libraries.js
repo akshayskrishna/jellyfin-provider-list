@@ -15,6 +15,14 @@
     "selectserver",
   ];
 
+  function tmdbDuotoneUrl(url) {
+    if (!url || !url.includes("image.tmdb.org/t/p/")) return url;
+    return url.replace(
+      /\/t\/p\/[^/]+\//,
+      "/t/p/w780_filter(duotone,ffffff,bababa)/",
+    );
+  }
+
   if (blockedRoutes.some((r) => route.includes(r))) return;
 
   /* =========================
@@ -299,7 +307,7 @@
       cardImgContainer.style.background = studio.gradient;
 
       const img = new Image();
-      img.src = studio.logo;
+      img.src = tmdbDuotoneUrl(studio.logo);
       img.className = "srow-card-logo";
       if (studio.invert) img.classList.add("srow-invert");
 
