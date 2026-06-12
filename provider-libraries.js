@@ -15,128 +15,198 @@
     "selectserver",
   ];
 
-  function tmdbDuotoneUrl(url) {
-    if (!url || !url.includes("image.tmdb.org/t/p/")) return url;
-    return url.replace(
-      /\/t\/p\/[^/]+\//,
-      "/t/p/w780_filter(duotone,ffffff,bababa)/",
-    );
-  }
-
   if (blockedRoutes.some((r) => route.includes(r))) return;
 
   /* =========================
-         STUDIOS (UNCHANGED)
-      ========================= */
+       STUDIOS (UNCHANGED)
+    ========================= */
 
   const STUDIOS = [
     {
       name: "Apple TV+",
       tag: "Apple TV",
       providerId: 350,
-      logo: "https://image.tmdb.org/t/p/w500/mcbz1LgtErU9p4UdbZ0rG6RTWHX.jpg",
+      logo: "https://image.tmdb.org/t/p/original/mcbz1LgtErU9p4UdbZ0rG6RTWHX.svg",
     },
     {
       name: "Prime Video",
       tag: "Amazon Prime Video",
       providerId: 9,
-      logo: "https://image.tmdb.org/t/p/w500/pvske1MyAoymrs5bguRfVqYiM9a.jpg",
+      logo: "https://image.tmdb.org/t/p/original/pvske1MyAoymrs5bguRfVqYiM9a.svg",
     },
     {
       name: "Netflix",
       tag: "Netflix",
       providerId: 8,
-      logo: "https://image.tmdb.org/t/p/w500/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+      logo: "https://image.tmdb.org/t/p/original/pbpMk2JmcoNnQwx5JGpXngfoWtp.svg",
     },
     {
       name: "Hulu",
       tag: "Hulu",
       providerId: 15,
-      logo: "https://image.tmdb.org/t/p/w500/bxBlRPEPpMVDc4jMhSrTf2339DW.jpg",
+      logo: "https://image.tmdb.org/t/p/original/bxBlRPEPpMVDc4jMhSrTf2339DW.svg",
     },
     {
       name: "Max",
       tag: "HBO Max Amazon Channel",
       providerId: 1825,
-      logo: "https://image.tmdb.org/t/p/w500/embS4GPK7c8pjbuY2O2irV5rYch.jpg",
+      logo: "https://image.tmdb.org/t/p/original/embS4GPK7c8pjbuY2O2irV5rYch.svg",
     },
     {
       name: "Disney Plus",
       tag: "Disney Plus",
       providerId: 337,
-      logo: "https://image.tmdb.org/t/p/w500/97yvRBw1GzX7fXprcF80er19ot.jpg",
+      logo: "https://image.tmdb.org/t/p/original/97yvRBw1GzX7fXprcF80er19ot.svg",
     },
     {
       name: "Paramount Plus",
       tag: "Paramount Plus Premium",
       providerId: 2303,
-      logo: "https://image.tmdb.org/t/p/w500/fts6X10Jn4QT0X6ac3udKEn2tJA.jpg",
+      logo: "https://image.tmdb.org/t/p/original/fts6X10Jn4QT0X6ac3udKEn2tJA.svg",
     },
     {
       name: "Peacock",
       tag: "Peacock Premium",
       providerId: 386,
-      logo: "https://image.tmdb.org/t/p/w500/2aGrp1xw3qhwCYvNGAJZPdjfeeX.jpg",
+      logo: "https://image.tmdb.org/t/p/original/2aGrp1xw3qhwCYvNGAJZPdjfeeX.svg",
     },
     {
       name: "Crunchyroll",
       tag: "Crunchyroll",
       providerId: 283,
-      logo: "https://image.tmdb.org/t/p/w500/fzN5Jok5Ig1eJ7gyNGoMhnLSCfh.jpg",
+      logo: "https://image.tmdb.org/t/p/original/fzN5Jok5Ig1eJ7gyNGoMhnLSCfh.svg",
     },
     {
       name: "AMC Plus",
       tag: "AMC Plus Apple TV Channel ",
       providerId: 1854,
-      logo: "https://image.tmdb.org/t/p/w500/oTQdXIqM9iewlN4MC2nhKB0gHw.jpg",
+      logo: "https://image.tmdb.org/t/p/original/oTQdXIqM9iewlN4MC2nhKB0gHw.svg",
     },
     {
       name: "Starz",
       tag: "Starz Apple TV Channel",
       providerId: 1855,
-      logo: "https://image.tmdb.org/t/p/w500/1C5EVCWyQD798CE1DFfcm6oAbxP.jpg",
+      logo: "https://image.tmdb.org/t/p/original/1C5EVCWyQD798CE1DFfcm6oAbxP.svg",
     },
     {
       name: "MGM Plus",
       tag: "MGM+ Amazon Channel",
       providerId: 583,
-      logo: "https://image.tmdb.org/t/p/w500/efu1Cqc63XrPBoreYnf2mn0Nizj.jpg",
+      logo: "https://image.tmdb.org/t/p/original/efu1Cqc63XrPBoreYnf2mn0Nizj.svg",
     },
     {
       name: "YouTube",
       tag: "YouTube",
       providerId: 192,
-      logo: "https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg",
+      logo: "https://image.tmdb.org/t/p/original/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.svg",
     },
     {
       name: "Tubi",
       tag: "Tubi TV",
       providerId: 73,
-      logo: "https://image.tmdb.org/t/p/w500/zLYr7OPvpskMA4S79E3vlCi71iC.jpg",
+      logo: "https://image.tmdb.org/t/p/original/zLYr7OPvpskMA4S79E3vlCi71iC.svg",
     },
     {
       name: "The Roku Channel",
       tag: "The Roku Channel",
       providerId: 207,
-      logo: "https://image.tmdb.org/t/p/w500/wQzSN83BnWVgO7xEh0SeTVqtrFv.jpg",
+      logo: "https://image.tmdb.org/t/p/original/wQzSN83BnWVgO7xEh0SeTVqtrFv.svg",
     },
     {
       name: "Shudder",
       tag: "Shudder",
       providerId: 99,
-      logo: "https://image.tmdb.org/t/p/w500/vEtdiYRPRbDCp1Tcn3BEPF1Ni76.jpg",
+      logo: "https://image.tmdb.org/t/p/original/vEtdiYRPRbDCp1Tcn3BEPF1Ni76.svg",
     },
     {
       name: "Mubi",
       tag: "MUBI",
       providerId: 11,
-      logo: "https://image.tmdb.org/t/p/w500/x570VpH2C9EKDf1riP83rYc5dnL.jpg",
+      logo: "https://image.tmdb.org/t/p/original/x570VpH2C9EKDf1riP83rYc5dnL.svg",
     },
     {
       name: "Criterion Channel",
       tag: "Criterion Channel",
       providerId: 258,
-      logo: "https://image.tmdb.org/t/p/w500/yhrtzYd43pFIhRq0ruO8umJPuyn.jpg",
+      logo: "https://image.tmdb.org/t/p/original/yhrtzYd43pFIhRq0ruO8umJPuyn.svg",
+    },
+    {
+      name: "HBO",
+      tag: "HBO,Home Box Office",
+      networkId: 49,
+      logo: "https://image.tmdb.org/t/p/original/tuomPhY2UtuPTqqFnKMVHvSb724.svg",
+    },
+    {
+      name: "Netflix",
+      tag: "Netflix",
+      networkId: 213,
+      logo: "https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg",
+    },
+    {
+      name: "AMC",
+      tag: "AMC,AMC Plus,AMC+",
+      networkId: 174,
+      logo: "https://image.tmdb.org/t/p/original/pmvRmATOCaDykE6JrVoeYxlFHw3.svg",
+    },
+    {
+      name: "BBC One",
+      tag: "BBC One,BBC Studios,BBC",
+      networkId: 4,
+      logo: "https://image.tmdb.org/t/p/original/uJjcCg3O4DMEjM0xtno9OWFciRP.svg",
+    },
+    {
+      name: "BBC Two",
+      tag: "BBC Two,BBC Studios,BBC",
+      networkId: 332,
+      logo: "https://image.tmdb.org/t/p/original/7HVPn1p2w1nC5oRKBehXVHpss7e.svg",
+    },
+    {
+      name: "FX",
+      tag: "FX,FXX,FX Productions",
+      networkId: 88,
+      logo: "https://image.tmdb.org/t/p/original/aexGjtcs42DgRtZh7zOxayiry4J.svg",
+    },
+    {
+      name: "Showtime",
+      tag: "Showtime",
+      networkId: 67,
+      logo: "https://image.tmdb.org/t/p/original/Allse9kbjiP6ExaQrnSpIhkurEi.svg",
+    },
+    {
+      name: "Starz",
+      tag: "Starz",
+      networkId: 318,
+      logo: "https://image.tmdb.org/t/p/original/qx3Y9LCaK4mq1ykFuDIfjshlo3U.svg",
+    },
+    {
+      name: "PBS",
+      tag: "PBS,Public Broadcasting Service",
+      networkId: 14,
+      logo: "https://image.tmdb.org/t/p/original/dr7UHl5ENaNiSca0tIcak3NneWu.svg",
+    },
+    {
+      name: "Apple TV+",
+      tag: "Apple TV+,Apple TV Plus,Apple Originals",
+      networkId: 2552,
+      logo: "https://image.tmdb.org/t/p/original/bngHRFi794mnMq34gfVcm9nDxN1.svg",
+    },
+    {
+      name: "Disney+",
+      tag: "Disney+,Disney Plus",
+      networkId: 2739,
+      logo: "https://image.tmdb.org/t/p/original/1edZOYAfoyZyZ3rklNSiUpXX30Q.svg",
+    },
+    {
+      name: "Paramount+",
+      tag: "Paramount+,Paramount Plus",
+      networkId: 4330,
+      logo: "https://image.tmdb.org/t/p/original/fi83B1oztoS47xxcemFdPMhIzK.svg",
+    },
+    {
+      name: "Peacock",
+      tag: "Peacock",
+      networkId: 3353,
+      logo: "https://image.tmdb.org/t/p/original/gIAcGTjKKr0KOHL5s4O36roJ8p7.svg",
     },
   ];
 
@@ -307,7 +377,7 @@
       cardImgContainer.style.background = studio.gradient;
 
       const img = new Image();
-      img.src = tmdbDuotoneUrl(studio.logo);
+      img.src = studio.logo;
       img.className = "srow-card-logo";
       if (studio.invert) img.classList.add("srow-invert");
 
