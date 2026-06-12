@@ -219,15 +219,15 @@
     s.textContent = `
 #custom-rows-wrapper{margin-bottom:20px}
 .srow-section{margin:.8em 0 .2em;padding:0 2.5%;width:100%}
-.srow-scroll{display:flex;gap:8px;width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.srow-scroll{display:flex;gap:10px;width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
 .srow-scroll > .card{margin:0!important;padding:0!important}
 
-.srow-card{flex:0 0 clamp(150px,16vw,240px);min-width:150px;scroll-snap-align:start}
+.srow-card{flex:0 0 clamp(190px,15.5vw,290px);min-width:190px;scroll-snap-align:start}
 .srow-card .cardScalable{position:relative}
 .srow-card .cardImageContainer{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center}
-.srow-card-logo{height:38px;max-width:65%;object-fit:contain;pointer-events:none}
-.srow-card-logo.srow-invert{filter:brightness(0) invert(1);height:52px;max-width:75%}
-@media (max-width:600px){.srow-card{flex-basis:42vw;min-width:140px}}
+.srow-card-logo{height:52px;max-width:72%;object-fit:contain;pointer-events:none}
+.srow-card-logo.srow-invert{filter:brightness(0) invert(1);height:64px;max-width:80%}
+@media (max-width:600px){.srow-card{flex-basis:48vw;min-width:155px}.srow-card-logo{height:42px}.srow-card-logo.srow-invert{height:54px}}
 `;
 
     document.head.appendChild(s);
