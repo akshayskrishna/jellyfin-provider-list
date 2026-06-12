@@ -217,17 +217,23 @@
     s.id = "jfcr-css";
 
     s.textContent = `
-#custom-rows-wrapper{margin-bottom:20px}
-.srow-section{margin:.8em 0 .2em;padding:0 2.5%;width:100%}
-.srow-scroll{display:flex;gap:10px;width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+#custom-rows-wrapper{margin:24px 0 34px!important;width:100%!important;position:relative!important;z-index:5!important}
+.srow-section{margin:0!important;padding:0 2.5%!important;width:100%!important;box-sizing:border-box!important}
+.srow-scroll{display:flex!important;flex-wrap:nowrap!important;gap:18px!important;width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;padding:0 0 14px!important;scroll-snap-type:x proximity!important;-webkit-overflow-scrolling:touch!important;align-items:stretch!important;justify-content:flex-start!important}
+.srow-scroll::-webkit-scrollbar{height:8px!important}
+.srow-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25)!important;border-radius:999px!important}
+.srow-scroll::-webkit-scrollbar-track{background:transparent!important}
 .srow-scroll > .card{margin:0!important;padding:0!important}
 
-.srow-card{flex:0 0 clamp(190px,15.5vw,290px);min-width:190px;scroll-snap-align:start}
-.srow-card .cardScalable{position:relative}
-.srow-card .cardImageContainer{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center}
-.srow-card-logo{height:52px;max-width:72%;object-fit:contain;pointer-events:none}
-.srow-card-logo.srow-invert{filter:brightness(0) invert(1);height:64px;max-width:80%}
-@media (max-width:600px){.srow-card{flex-basis:48vw;min-width:155px}.srow-card-logo{height:42px}.srow-card-logo.srow-invert{height:54px}}
+.srow-card{flex:0 0 260px!important;width:260px!important;min-width:260px!important;max-width:260px!important;scroll-snap-align:start!important;display:block!important;border:0!important;background:transparent!important}
+.srow-card .cardBox{width:100%!important;margin:0!important}
+.srow-card .cardScalable{position:relative!important;width:100%!important;height:auto!important;contain:none!important}
+.srow-card .cardPadder{display:block!important;width:100%!important;padding-bottom:56.25%!important}
+.srow-card .cardImageContainer{position:absolute!important;top:0!important;left:0!important;right:0!important;bottom:0!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:12px!important;background-size:cover!important;box-shadow:0 4px 18px rgba(0,0,0,.35)!important}
+.srow-card-logo{height:70px!important;max-width:78%!important;object-fit:contain!important;pointer-events:none!important}
+.srow-card-logo.srow-invert{filter:brightness(0) invert(1)!important;height:78px!important;max-width:82%!important}
+@media (max-width:900px){.srow-card{flex-basis:220px!important;width:220px!important;min-width:220px!important;max-width:220px!important}.srow-card-logo{height:58px!important}.srow-card-logo.srow-invert{height:66px!important}}
+@media (max-width:600px){.srow-card{flex-basis:70vw!important;width:70vw!important;min-width:210px!important;max-width:260px!important}.srow-card-logo{height:52px!important}.srow-card-logo.srow-invert{height:62px!important}}
 `;
 
     document.head.appendChild(s);
