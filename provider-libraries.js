@@ -85,22 +85,16 @@
     s.id = "jfcr-css";
 
     s.textContent = `
-#custom-rows-wrapper{margin:24px 0 34px!important;width:100%!important;position:relative!important;z-index:5!important}
-.srow-section{margin:0!important;padding:0 2.5%!important;width:100%!important;box-sizing:border-box!important}
-.srow-scroll{display:flex!important;flex-wrap:nowrap!important;gap:18px!important;width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;padding:0 0 14px!important;scroll-snap-type:x proximity!important;-webkit-overflow-scrolling:touch!important;align-items:stretch!important;justify-content:flex-start!important}
-.srow-scroll::-webkit-scrollbar{height:8px!important}
-.srow-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25)!important;border-radius:999px!important}
-.srow-scroll::-webkit-scrollbar-track{background:transparent!important}
+#custom-rows-wrapper{margin-bottom:20px}
+.srow-section{margin:.8em 0 .2em;padding:0 2.5%;width:100%}
+.srow-scroll{display:flex;gap:3px;width:100%}
+.srow-scroll > .card{margin:0!important;padding:0!important}
 
-.srow-card{flex:0 0 260px!important;width:260px!important;min-width:260px!important;max-width:260px!important;margin:0!important;padding:0!important;scroll-snap-align:start!important;position:relative!important;display:block!important;color:inherit!important;text-decoration:none!important;background:transparent!important;border:0!important}
-.srow-card .cardBox{width:100%!important;margin:0!important;position:relative!important}
-.srow-card .cardScalable{position:relative!important;width:100%!important;height:auto!important;contain:none!important}
-.srow-card .cardPadder{display:block!important;width:100%!important;padding-bottom:56.25%!important}
-.srow-card .cardImageContainer{position:absolute!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:var(--abyss-radius,12px)!important;background-repeat:no-repeat!important;background-position:center!important;background-size:cover!important;box-shadow:0 0 3px rgba(200,200,200,.35) inset!important;overflow:hidden!important;contain:strict!important}
-.srow-card-logo{height:70px!important;max-width:78%!important;object-fit:contain!important;pointer-events:none!important;position:relative!important;z-index:2!important}
-.srow-card-logo.srow-invert{filter:brightness(0) invert(1)!important;height:78px!important;max-width:82%!important}
-@media (max-width:900px){.srow-card{flex-basis:220px!important;width:220px!important;min-width:220px!important;max-width:220px!important}.srow-card-logo{height:58px!important}.srow-card-logo.srow-invert{height:66px!important}}
-@media (max-width:600px){.srow-card{flex-basis:70vw!important;width:70vw!important;min-width:210px!important;max-width:260px!important}.srow-card-logo{height:52px!important}.srow-card-logo.srow-invert{height:62px!important}}
+.srow-card{flex:1 1 0;min-width:0;max-width:14vw}
+.srow-card .cardScalable{position:relative}
+.srow-card .cardImageContainer{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center}
+.srow-card-logo{height:38px;max-width:65%;object-fit:contain;pointer-events:none}
+.srow-card-logo.srow-invert{filter:brightness(0) invert(1);height:52px;max-width:75%}
 `;
 
     document.head.appendChild(s);
@@ -231,7 +225,8 @@
     STUDIOS.forEach((studio, i) => {
       if (counts[i] === 0) return;
 
-      const card = document.createElement("div");
+      const card = document.createElement("button");
+      card.type = "button";
       card.className = "card overflowBackdropCard card-hoverable srow-card";
 
       const cardBox = document.createElement("div");
@@ -244,20 +239,12 @@
       const cardPadder = document.createElement("div");
       cardPadder.className = "cardPadder cardPadder-overflowBackdrop";
 
-      const cardImgContainer = document.createElement("a");
-      cardImgContainer.href = "javascript:void(0)";
-      cardImgContainer.setAttribute("data-action", "link");
-      cardImgContainer.setAttribute("aria-label", studio.name);
-      cardImgContainer.setAttribute("role", "img");
-      cardImgContainer.className =
-        "cardImageContainer coveredImage cardContent itemAction lazy lazy-image-fadein-fast";
-      cardImgContainer.style.backgroundImage =
-        studio.gradient ||
-        "linear-gradient(135deg,rgba(35,35,35,.95),rgba(5,5,5,.95))";
+      const cardImgContainer = document.createElement("div");
+      cardImgContainer.className = "cardImageContainer coveredImage";
+      cardImgContainer.style.background = studio.gradient;
 
       const img = new Image();
       img.src = studio.logo;
-      img.alt = studio.name;
       img.className = "srow-card-logo";
       if (studio.invert) img.classList.add("srow-invert");
 
